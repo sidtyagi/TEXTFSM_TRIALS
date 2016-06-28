@@ -1,0 +1,11 @@
+Value hostname (\S+)
+Value name ([0-9A-z-\s/]+)
+Value description ([0-9A-z-\s]+)
+Value productid (\S*)
+Value vid ([A-Z0-9]*)
+Value Required serialnumber ([A-Z0-9]+)
+ 
+Start
+  ^${hostname}#.*
+  ^NAME: "${name}", DESCR: "${description}"
+  ^PID: ${productid}.*VID: ${vid}.*SN: ${serialnumber} -> Record
